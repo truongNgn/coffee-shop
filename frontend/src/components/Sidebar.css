@@ -1,0 +1,21 @@
+.sidebar {
+  width: 150px;
+  padding: 20px;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sidebar button:hover {
+  background: #444;
+}

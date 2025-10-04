@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #222;
+  color: white;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar {
+  width: 150px;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  flex: 1;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+

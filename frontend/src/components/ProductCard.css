@@ -1,0 +1,45 @@
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  max-width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+.card p {
+  color: #555;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.card button {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.card button:hover {
+  background: #444;
+}
