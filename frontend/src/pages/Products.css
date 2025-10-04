@@ -1,9 +1,94 @@
-.products-grid input {
-  font-size: 1rem;
-  outline: none;
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
 }
 
-.products-grid input:focus {
-  border-color: #4caf50;
-  box-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
+.products-header h2 {
+  color: #4e342e; /* dark brown */
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  margin-top: 10px;
+}
+
+.products-grid p {
+  grid-column: 1/-1;
+  text-align: center;
+  color: #a9744f; /* light brown */
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Product Card styles (if you use a ProductCard component) */
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(80, 50, 20, 0.10);
+  padding: 18px 16px 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid #f5f3f0;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 24px rgba(80, 50, 20, 0.15);
+  border: 1.5px solid #a9744f;
+}
+
+.product-card-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f5f3f0;
+  border: 1.5px solid #a9744f;
+  margin-bottom: 14px;
+}
+
+.product-card-title {
+  font-size: 1.15rem;
+  color: #4e342e;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.product-card-price {
+  color: #a9744f;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-card-btn {
+  background: #4e342e;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.product-card-btn:hover {
+  background: #2d1b12;
+}
+
+.products-bg {
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #f5f3f0 60%, #a9744f22 100%); */
+  
+  background: url('/about_background.jpg') center/cover no-repeat #f5f3f0;
+  
+  padding: 0;
 }

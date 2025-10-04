@@ -17,77 +17,64 @@ export default function ProductDetail() {
     const finalPrice = (product.price + extra) * qty;
 
     if (!product) {
-        return <p>Product not found!</p>;
+        return <p>Sản phẩm không tồn tại!</p>;
     }
 
     return (
-        <div style={{ display: "flex", padding: "20px", gap: "40px" }}>
+        <div className="product-detail-container">
             <img
                 src={product.image}
                 alt={product.name}
-                style={{ width: "300px", borderRadius: "8px" }}
+                className="product-detail-img"
             />
-            <div>
-                <h2>{product.name}</h2>
-                <p>SKU: 65000{id}</p>
-                <p style={{ fontWeight: "bold", fontSize: "20px" }}>
-                    {(product.price + extra).toLocaleString()} đ
+            <div className="product-detail-info">
+                <h2 className="product-detail-title">{product.name}</h2>
+                <p className="product-detail-sku">Mã sản phẩm: <b>65000{id}</b></p>
+                <p className="product-detail-price">
+                    Giá: <span>{(product.price + extra).toLocaleString()} đ</span>
                 </p>
+                <p className="product-detail-desc">{product.desc || "Thức uống thơm ngon, phù hợp mọi khoảnh khắc!"}</p>
 
-                <h4>Chọn kích cỡ</h4>
-                <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
-                    <button
-                        style={{
-                            background: size === "M" ? "#ccc" : "#fff",
-                            padding: "8px 14px",
-                        }}
-                        onClick={() => setSize("M")}
-                    >
-                        M
-                    </button>
-                    <button
-                        style={{
-                            background: size === "L" ? "#ccc" : "#fff",
-                            padding: "8px 14px",
-                        }}
-                        onClick={() => setSize("L")}
-                    >
-                        L +10.000đ
-                    </button>
+                <div className="product-detail-section">
+                    <h4>Chọn kích cỡ</h4>
+                    <div className="product-detail-size-group">
+                        <button
+                            className={`product-detail-size-btn${size === "M" ? " active" : ""}`}
+                            onClick={() => setSize("M")}
+                        >
+                            M
+                        </button>
+                        <button
+                            className={`product-detail-size-btn${size === "L" ? " active" : ""}`}
+                            onClick={() => setSize("L")}
+                        >
+                            L +10.000đ
+                        </button>
+                    </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <button onClick={() => setQty((q) => Math.max(1, q - 1))}>-</button>
-                    <span>{qty}</span>
-                    <button onClick={() => setQty((q) => q + 1)}>+</button>
+                <div className="product-detail-section">
+                    <h4>Số lượng</h4>
+                    <div className="product-detail-qty-group">
+                        <button onClick={() => setQty((q) => Math.max(1, q - 1))}>-</button>
+                        <span>{qty}</span>
+                        <button onClick={() => setQty((q) => q + 1)}>+</button>
+                    </div>
                 </div>
 
                 <button
                     className="add-to-cart-btn"
-                    style={{
-                        marginTop: "20px",
-                        // background: "green",
-                        color: "white",
-                        padding: "10px 20px",
-                        border: "none",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-
-                    }}
-                    
                     onClick={() =>
                         addToCart({
                             ...product,
                             size: size,
                             price: product.price + extra,
-                            qty: qty,   // ✅ pass selected quantity
+                            qty: qty,
                         })
                     }
                 >
-                    🛒 Thêm vào giỏ hàng : {finalPrice.toLocaleString()} đ
+                    🛒 Thêm vào giỏ hàng ({finalPrice.toLocaleString()} đ)
                 </button>
-
-
             </div>
         </div>
     );
