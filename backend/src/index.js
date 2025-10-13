@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
 
 const productRoutes = require('./routes/productRoute');
-
+const cors = require('cors');
+app.use(cors());
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'coffee_shop' })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
