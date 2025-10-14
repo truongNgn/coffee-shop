@@ -1,5 +1,5 @@
 // models/orderModel.js
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
   customerName: {
@@ -20,12 +20,20 @@ const orderSchema = new mongoose.Schema({
       name: String,
       size: String,
       qty: Number,
-      price: Number
+      price: Number,
+      total: Number
     }
   ],
   totalPrice: Number,
   createdAt: { type: Date, default: Date.now },
-  status: { type: String, default: "Pending" } // Pending, Completed, Cancelled
 });
 
-export default mongoose.model("Order", orderSchema, "order");
+orderSchema.pre("save", function (next) {
+  // Tính tổng total trong cartItems
+  this.totalPrice = this.cartItems.reduce((acc, item) => acc + (item.total || 0), 0);
+  next();
+});
+
+const Order = mongoose.model("Order", orderSchema, "order");
+
+module.exports = Order;
