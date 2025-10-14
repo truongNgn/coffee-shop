@@ -2,9 +2,18 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-  customerName: String,
-  phone: String,
-  address: String,
+  customerName: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
   cartItems: [
     {
       productId: String,
@@ -19,4 +28,4 @@ const orderSchema = new mongoose.Schema({
   status: { type: String, default: "Pending" } // Pending, Completed, Cancelled
 });
 
-export default mongoose.model("Order", orderSchema);
+export default mongoose.model("Order", orderSchema, "order");
