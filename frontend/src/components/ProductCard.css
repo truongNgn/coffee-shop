@@ -12,12 +12,16 @@
 }
 
 .card img {
-  max-width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 6px;
+  width: 100%;
+  height: 180px;               /* 👈 bạn có thể đổi tuỳ giao diện (ví dụ 200px) */
+  object-fit: cover;           /* 👈 giữ tỉ lệ, cắt phần thừa — không méo */
+  border-radius: 8px;
+  background-color: #f5f3f0;   /* 👈 nền đồng nhất nếu ảnh có vùng trống */
+  border: 1.5px solid #ddd;
   margin-bottom: 10px;
+  display: block;              /* đảm bảo không bị inline spacing */
 }
+
 
 .card h3 {
   font-size: 1.1rem;
@@ -42,4 +46,8 @@
 
 .card button:hover {
   background: #444;
+}
+.card img {
+  background: #f5f3f0;
+  border: 1.5px solid #a9744f;
 }
