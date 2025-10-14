@@ -21,10 +21,11 @@ export default function Navbar() {
       <div className="logo">Brown Beans</div>
 
       <ul>
-        <li><Link to="/">HOME</Link></li>
-        <li><Link to="/about">ABOUT</Link></li>
-        <li><Link to="/products">PRODUCTS</Link></li>
-        <li><Link to="/cart">CART ({cart.length})</Link></li>
+        <li><Link to="/">TRANG CHỦ</Link></li>
+        <li><Link to="/about">VỀ CHÚNG TÔI</Link></li>
+        <li><Link to="/contact">LIÊN HỆ</Link></li>
+        <li><Link to="/products">SẢN PHẨM</Link></li>
+        <li><Link to="/cart">GIỎ HÀNG ({cart.length})</Link></li>
 
         {/* ✅ Nếu chưa login */}
         {!user && (

@@ -7,7 +7,7 @@ import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail"; // NEW
 import LoginPage from "./pages/LoginPage"; 
 import RegisterPage from "./pages/RegisterPage"; // NEW
-
+import ContactPage from "./pages/Contact"; // NEW
 function App() {
   return (
     <Router>
@@ -20,6 +20,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} /> {/* NEW */}
+        <Route path="/contact" element={<ContactPage />} /> {/* NEW */}
       </Routes>
     </Router>
   );
