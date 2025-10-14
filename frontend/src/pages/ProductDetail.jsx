@@ -44,7 +44,7 @@ export default function ProductDetail() {
     <div className="product-detail-container">
       {/* ✅ Nút quay lại */}
       <button className="back-btn" onClick={() => navigate("/products")}>
-        ⬅️ Quay lại danh sách
+        ⬅ Quay lại danh sách
       </button>
 
       <img src={product.image} alt={product.name} className="product-detail-img" />
