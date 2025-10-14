@@ -8,6 +8,7 @@ import ProductDetail from "./pages/ProductDetail"; // NEW
 import LoginPage from "./pages/LoginPage"; 
 import RegisterPage from "./pages/RegisterPage"; // NEW
 import ContactPage from "./pages/Contact"; // NEW
+import CheckoutPage from "./pages/CheckoutPage";
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} /> {/* NEW */}
         <Route path="/contact" element={<ContactPage />} /> {/* NEW */}
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </Router>
   );

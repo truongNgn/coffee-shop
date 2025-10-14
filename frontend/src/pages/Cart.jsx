@@ -1,8 +1,10 @@
 import { useCart } from "../context/CartContext";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom"; // ✅ import hook
 
 export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate(); // ✅ thêm dòng này
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
@@ -62,7 +64,11 @@ export default function Cart() {
               <button className="cart-clear-btn" onClick={clearCart}>
                 Xóa tất cả
               </button>
-              <button className="cart-pay-btn">
+
+              <button
+                className="cart-pay-btn"
+                onClick={() => navigate("/checkout")} // ✅ navigate đã được định nghĩa
+              >
                 Thanh toán
               </button>
             </div>
