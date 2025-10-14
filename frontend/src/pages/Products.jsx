@@ -19,7 +19,7 @@ export default function Products() {
   const filteredProducts =
     filter === "all"
       ? products
-      : products.filter((p) => p.category == filter);
+      : products.filter((p) => p.category === filter);
 
   // filter by search keyword
   const searchedProducts = filteredProducts.filter((p) =>
