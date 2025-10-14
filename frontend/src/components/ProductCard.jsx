@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
       {/* Nếu có nhiều size, hiển thị hết */}
       <div style={{ marginBottom: "10px" }}>
         {product.sizes?.map((s) => (
-          <p key={s.id_product}>
+          <p key={s._id}>
             {s.size} - {s.price.toLocaleString()}đ
           </p>
         ))}
