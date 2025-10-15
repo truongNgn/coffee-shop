@@ -5,7 +5,10 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail"; // NEW
-
+import LoginPage from "./pages/LoginPage"; 
+import RegisterPage from "./pages/RegisterPage"; // NEW
+import ContactPage from "./pages/Contact"; // NEW
+import CheckoutPage from "./pages/CheckoutPage";
 function App() {
   return (
     <Router>
@@ -16,6 +19,10 @@ function App() {
         <Route path="/products/:id" element={<ProductDetail />} /> {/* NEW */}
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} /> {/* NEW */}
+        <Route path="/contact" element={<ContactPage />} /> {/* NEW */}
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </Router>
   );

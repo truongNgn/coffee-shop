@@ -37,3 +37,93 @@
 .navbar a:hover {
   color: #f0a500;            /* gold highlight */
 }
+
+.user-menu {
+  position: relative;
+  cursor: pointer;
+  color: #6f4e37;
+  font-weight: 600;
+}
+
+.dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #fff8f0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  z-index: 999;
+  min-width: 120px;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #6f4e37;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.dropdown button:hover {
+  background-color: #f3e5d0;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 10px 40px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center; /* ✅ căn giữa theo trục dọc */
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* tạo khoảng cách giữa các mục */
+}
+
+.navbar ul li {
+  display: inline-flex; /* ✅ giúp icon và chữ nằm cùng hàng */
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.user-menu {
+  position: relative;
+  color: #c28b47; /* màu nâu nhẹ */
+  display: inline-flex;
+  align-items: center; /* ✅ căn giữa icon và chữ */
+  gap: 5px; /* khoảng cách giữa icon và tên */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; /* nằm ngay dưới tên user */
+  right: 0;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  background-color: #555;
+}

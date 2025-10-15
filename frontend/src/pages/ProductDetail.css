@@ -161,3 +161,28 @@
     transform: translateY(-10px);
   }
 }
+
+
+/* Nút quay lại - fixed góc trái trên màn hình */
+.back-btn {
+  position: fixed;
+  top: 100px;       /* cách mép trên 100px, có thể tùy chỉnh */
+  left: 30px;       /* cách mép trái 30px */
+  background: #471e22;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+  z-index: 999; /* đảm bảo nằm trên các phần khác */
+}
+
+.back-btn:hover {
+  background: #5d292f;
+  transform: scale(1.05);
+}
+

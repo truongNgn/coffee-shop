@@ -1,8 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const orderController = require('../controllers/orderController');
+const { createOrder, getAllOrders, getOrderById, updateOrderStatus } = require('../controllers/orderController');
 
-router.get('/:phone', orderController.getOrders);
-router.post('/', orderController.createOrder);
+// POST /api/orders
+router.post('/', createOrder);
+
+// GET /api/orders
+router.get('/', getAllOrders);
+
+// GET /api/orders/:id
+router.get('/:id', getOrderById);
+
+// PUT /api/orders/:id
+router.put('/:id', updateOrderStatus);
 
 module.exports = router;

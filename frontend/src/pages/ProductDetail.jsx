@@ -1,17 +1,17 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate(); // ✅ dùng để quay lại trang trước
   const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [size, setSize] = useState("M");
   const [qty, setQty] = useState(1);
-  
-  const [showMessage, setShowMessage] = useState(false); // ✅ state cho thông báo
+  const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/product/${id}`)
@@ -36,12 +36,17 @@ export default function ProductDetail() {
       price: basePrice,
       qty: qty,
     });
-    setShowMessage(true); // ✅ bật thông báo
-    setTimeout(() => setShowMessage(false), 2000); // 2s sau ẩn
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 2000);
   };
 
   return (
     <div className="product-detail-container">
+      {/* ✅ Nút quay lại */}
+      <button className="back-btn" onClick={() => navigate("/products")}>
+        ⬅ Quay lại danh sách
+      </button>
+
       <img src={product.image} alt={product.name} className="product-detail-img" />
 
       <div className="product-detail-info">
@@ -90,7 +95,7 @@ export default function ProductDetail() {
           🛒 Thêm vào giỏ hàng ({finalPrice.toLocaleString()} đ)
         </button>
 
-        {/* ✅ thông báo */}
+        {/* thông báo */}
         {showMessage && (
           <div className="add-success-msg">✅ Đã thêm sản phẩm vào giỏ hàng!</div>
         )}

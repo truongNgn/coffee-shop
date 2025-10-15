@@ -1,8 +1,0 @@
-{
-  "name": "coffee-shop",
-  "private": true,
-  "workspaces": [
-    "frontend",
-    "backend"
-  ]
-}
