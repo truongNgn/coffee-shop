@@ -16,12 +16,12 @@ const orderSchema = new mongoose.Schema({
   },
   cartItems: [
     {
-      productId: String,
+      id_product: String,
       name: String,
       size: String,
-      qty: Number,
+      quantity: Number,
       price: Number,
-      total: Number
+      total_price: Number
     }
   ],
   totalPrice: Number,
