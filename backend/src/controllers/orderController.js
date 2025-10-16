@@ -1,8 +1,8 @@
 
-import Order from "../models/orderModel.js";
+const Order = require("../models/orderModel");
 
 // ✅ Tạo đơn hàng mới
-export const createOrder = async (req, res) => {
+const createOrder = async (req, res) => {
     try {
         const { user, items, total } = req.body;
 
@@ -22,7 +22,7 @@ export const createOrder = async (req, res) => {
 };
 
 // ✅ Lấy danh sách tất cả đơn hàng (admin)
-export const getAllOrders = async (req, res) => {
+const getAllOrders = async (req, res) => {
     try {
         const orders = await Order.find().sort({ createdAt: -1 });
         res.status(200).json(orders);
@@ -33,7 +33,7 @@ export const getAllOrders = async (req, res) => {
 };
 
 // ✅ Lấy đơn hàng theo ID (user)
-export const getOrderById = async (req, res) => {
+const getOrderById = async (req, res) => {
     try {
         const order = await Order.findById(req.params.id);
         if (!order) return res.status(404).json({ error: "Không tìm thấy đơn hàng" });
@@ -45,7 +45,7 @@ export const getOrderById = async (req, res) => {
 };
 
 // ✅ Cập nhật trạng thái đơn hàng
-export const updateOrderStatus = async (req, res) => {
+const updateOrderStatus = async (req, res) => {
     try {
         const { status } = req.body;
         const order = await Order.findByIdAndUpdate(
@@ -59,4 +59,11 @@ export const updateOrderStatus = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: "Lỗi khi cập nhật trạng thái đơn hàng" });
     }
+};
+
+module.exports = {
+    createOrder,
+    getAllOrders,
+    getOrderById,
+    updateOrderStatus
 };

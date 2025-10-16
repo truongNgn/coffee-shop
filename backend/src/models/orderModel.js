@@ -1,4 +1,3 @@
-// models/orderModel.js
 const mongoose = require('mongoose');
 
 // const orderSchema = new mongoose.Schema({
@@ -45,5 +44,5 @@ const orderSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-const Order = mongoose.model("Order", orderSchema);
-export default Order;
+const Order = mongoose.model("Order", orderSchema, 'order');
+module.exports = Order;
