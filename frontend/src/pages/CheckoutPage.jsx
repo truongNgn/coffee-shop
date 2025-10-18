@@ -2,17 +2,27 @@ import { useCart } from "../context/CartContext";
 import { useState } from "react";
 
 export default function CheckoutPage() {
-  const { cartItems, clearCart } = useCart();
+  const { cart, clearCart } = useCart();
   const [customerName, setCustomerName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
 
   const handleCheckout = async () => {
-    const res = await fetch("http://localhost:3000/order/checkout", {
+    const orderData = {
+      user: {
+        name: customerName,
+        phone,
+        address,
+      },
+      items: cart, // nếu cart có dạng [{id, name, size, price, qty, image}]
+      total: cart.reduce((acc, item) => acc + item.total_price, 0),
+    };
+
+    const res = await fetch("http://localhost:3000/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ customerName, phone, address, cartItems }),
+      body: JSON.stringify(orderData),
     });
 
     const data = await res.json();

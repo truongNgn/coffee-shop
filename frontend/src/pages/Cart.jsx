@@ -6,7 +6,7 @@ export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate(); // ✅ thêm dòng này
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div className="cart-bg">
@@ -36,16 +36,16 @@ export default function Cart() {
                 <strong className="cart-item-name">{item.name}</strong>
                 <span className="cart-item-size">({item.size})</span>
                 <span className="cart-item-detail">
-                  {item.qty} x {item.price.toLocaleString()}đ ={" "}
+                  {item.quantity} x {item.price.toLocaleString()}đ ={" "}
                   <span className="cart-item-total">
-                    {(item.price * item.qty).toLocaleString()}đ
+                    {(item.price * item.quantity).toLocaleString()}đ
                   </span>
                 </span>
               </div>
             </div>
             <button
               className="cart-remove-btn"
-              onClick={() => removeFromCart(item.id, item.size)}
+              onClick={() => removeFromCart(item.id_product, item.size)}
             >
               Xóa
             </button>

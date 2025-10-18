@@ -12,6 +12,7 @@ export default function ProductDetail() {
   const [size, setSize] = useState("M");
   const [qty, setQty] = useState(1);
   const [showMessage, setShowMessage] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/product/${id}`)
@@ -29,6 +30,9 @@ export default function ProductDetail() {
   const finalPrice = basePrice * qty;
 
   const handleAddToCart = () => {
+    if (isDisabled) return; // tránh click spam
+    setIsDisabled(true);
+
     addToCart({
       ...product,
       id: product.id_product,
@@ -38,6 +42,8 @@ export default function ProductDetail() {
     });
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 2000);
+
+    setTimeout(() => setIsDisabled(false), 500);
   };
 
   return (
@@ -91,8 +97,8 @@ export default function ProductDetail() {
         </div>
 
         {/* thêm giỏ */}
-        <button className="add-to-cart-btn" onClick={handleAddToCart}>
-          🛒 Thêm vào giỏ hàng ({finalPrice.toLocaleString()} đ)
+        <button className="add-to-cart-btn" onClick={handleAddToCart} disabled={isDisabled}>
+          {isDisabled ? "Đang thêm..." : `🛒 Thêm vào giỏ hàng (${finalPrice.toLocaleString()} đ)`}
         </button>
 
         {/* thông báo */}

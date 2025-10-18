@@ -21,7 +21,7 @@ const addToCart = async (req, res) => {
         if (!selectedSize) {
             return res.status(400).json({ message: "Invalid size" });
         }
-        const cartItem = new Cart({ phone, id_product, name: product.name, quantity, price: selectedSize.price, size: size });
+        const cartItem = new Cart({ phone, id_product, name: product.name, quantity: quantity, price: selectedSize.price, size: size, image: product.image });
         await cartItem.save();
         res.status(201).json(cartItem);
     }

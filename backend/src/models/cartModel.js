@@ -29,7 +29,11 @@ const cartSchema = new mongoose.Schema({
     },
     size: {
         type: String,
-        enum: ['S', 'M', 'L'],
+        enum: ['M', 'L'],
+        required: true
+    },
+    image: {
+        type: String,
         required: true
     }
 });

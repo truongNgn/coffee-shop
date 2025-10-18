@@ -22,7 +22,7 @@ app.use(express.json());
 app.use('/product', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/order', orderRoutes);
-app.use("/user", userRoutes);
+app.use('/user', userRoutes);
 
 app.listen(PORT, () => {
     console.log("Server is running on http://localhost:" + PORT);
